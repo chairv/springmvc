@@ -21,5 +21,4 @@ public class BaseController extends AbstractController {
         return null;
     }
 
-
 }
