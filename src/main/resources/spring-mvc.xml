@@ -13,4 +13,11 @@
 
     <bean name="/show.do" class="com.controller.BaseController"/>
 
+    <bean id="helloService" class="com.hessian.HelloService"/>
+
+    <bean name="/hello.do" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="helloService"/>
+        <property name="serviceInterface" value="com.hessian.Hello"/>
+    </bean>
+
 </beans>
