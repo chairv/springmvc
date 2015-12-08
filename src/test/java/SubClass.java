@@ -4,7 +4,7 @@
 public class SubClass extends PClass {
 
     public SubClass() {
-        System.out.printf("s-c,");
+//        System.out.printf("s-c,");
     }
 
     @Override

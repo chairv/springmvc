@@ -4,8 +4,8 @@
 public class PClass {
 
         public PClass(){
-            System.out.printf("p-c,");
-            init();
+//            System.out.printf("p-c,");
+//            init();
         }
 
     public void init() {

@@ -5,4 +5,8 @@ package com.hessian;
  */
 public interface Hello {
      String sayHello(String name);
+
+    default void desp(){
+        System.out.println("say hello method");
+    }
 }

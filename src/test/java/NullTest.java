@@ -26,4 +26,11 @@ public class NullTest {
 			System.out.println("null != a || a==1");
 		}
 	}
+
+    @Test
+    public void test(){
+        Integer a = null;
+        Integer b = a;
+        System.out.println(b);
+    }
 }
