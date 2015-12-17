@@ -10,7 +10,7 @@
     <packaging>war</packaging>
 
    <properties>
-       <spring.version>3.1.0.RELEASE</spring.version>
+       <spring.version>4.0.6.RELEASE</spring.version>
    </properties>
 
     <dependencies>
@@ -126,6 +126,7 @@
 
     <build>
         <finalName>springmvc</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
@@ -133,5 +134,6 @@
                 <version>6.1.9</version>
             </plugin>
         </plugins>
+
     </build>
 </project>
