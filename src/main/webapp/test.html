@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title> New Document </title>
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta charset="UTF-8">
+
+    <script>
+        function zd(u) {
+            var a = ['top', 'left'], b = 0;
+            u = setInterval(function () {
+                document.getElementById('win').style[a[b % 2]] = (b++) % 4 < 2 ? 0 : 4;
+                if (b > 15) {
+                    clearInterval(u);
+                    b = 0
+                }
+            }, 32)
+        }
+    </script>
+
+</head>
+
+<body>
+<button onclick="zd()">振动</button>
+<div id="win" style='position:relative;' border="1">asdfasdf
+    <div/>
+</body>
+</html>
