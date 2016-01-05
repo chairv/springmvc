@@ -27,10 +27,26 @@ public class NullTest {
 		}
 	}
 
-    @Test
-    public void test(){
-        Integer a = null;
-        Integer b = a;
-        System.out.println(b);
+	@Test
+	public void test() {
+		Integer a = null;
+		Integer b = a;
+		System.out.println(b);
+	}
+
+	@Test
+	public void test2() {
+		Sub sub = new Sub();
+		create(sub);
+        System.out.println(sub.value);
     }
+
+	public void create(Sub sub) {
+	 sub.value += 1;
+    }
+
+	class Sub {
+		public int value = 1;
+	}
+
 }

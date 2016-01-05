@@ -6,29 +6,26 @@
     <meta name="Keywords" content="">
     <meta name="Description" content="">
     <meta charset="UTF-8">
-    <link type="text/css" href="css/bootstrap/bootstrap.css">
 </head>
 
 <body>
-    <div id="win" style='position:relative;'>
-    <!--<img src="images/ld.jpg" class="img-circle" style="width:89px;height:69px"/>-->
-        <i class="icon-bell-alt icon-animated-bell"/>
-    <div/>
 
-    <script>
-        function shake() {
-            var obj = this;
-            var a = ['top', 'left'], b = 0;
-            u = setInterval(function () {
-                obj.style[a[b % 2]] = (b++) % 4 < 2 ? 0 : 4;
-                if (b > 15) {
-                    clearInterval(u);
-                    b = 0
-                }
-            }, 32)
-        }
+<canvas id="canvas"></canvas>
 
-        shake.apply(document.getElementById('win'));
-    </script>
+<script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.src = "images/ld.jpg";
+    img.onload = function () {
+        var ptrn = ctx.createPattern(img, "no-repeat");
+        ctx.fillStyle = ptrn;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+</script>
+
 </body>
 </html>
