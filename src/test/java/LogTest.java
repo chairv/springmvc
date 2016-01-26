@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class LogTest {
     public static void main(String[] args) throws IOException {
         String encoding = "utf-8";
-        File file = new File("C:\\Users\\tancw\\Downloads\\log1230.txt");
+        File file = new File("C:\\Users\\tancw\\Downloads\\log0114.txt");
         Set<String> result = new HashSet<String>();
         if (file.exists()) {
             InputStreamReader read = new InputStreamReader(new FileInputStream(file), encoding);

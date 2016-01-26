@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by qiao on 2015/11/18.
  */
 public class BaseController extends AbstractController {
 
