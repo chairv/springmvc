@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    var car = {
+        brand: "Nissan",
+        getBrand: function () {
+            console.info(this);
+            var close = function () {
+                console.info(this);
+                console.info(this.brand);
+            }.bind(this);
+            return close();
+        }
+    }
+</script>
+
+</body>
+</html>
