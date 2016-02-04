@@ -13,6 +13,8 @@ public class BaseController extends AbstractController {
 
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView mv = new ModelAndView("hello");
+        mv.addObject("title","Spring mvc and Freemarker");
+        mv.addObject("content","Hello world, test my first spring mvc");
         return mv;
     }
 
