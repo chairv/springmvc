@@ -21,7 +21,7 @@ public class FutureTest {
 				return doSendMsg();
 			}
 		};
-		FutureTask<Boolean> future = new FutureTask<Boolean>(callable);
+		final FutureTask<Boolean> future = new FutureTask<Boolean>(callable);
 		executor.execute(future);
 		System.out.println("main over");
 
