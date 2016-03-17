@@ -1,0 +1,6 @@
+<hsml>
+    <div style="border:1px solid red">显示</div>
+    <body>
+    Hello World!  ${name}
+    </body>
+</hsml>

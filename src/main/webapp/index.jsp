@@ -7,10 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title></title>
-  </head>
-  <body>
-     <div>显示数据,测试一下</div>
-  </body>
+</head>
+<body>
+<div>显示数据,测试一下</div>
+<a href="/base.do">点击</a>
+</body>
 </html>

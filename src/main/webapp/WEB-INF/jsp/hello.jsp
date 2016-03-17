@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-hello springmvc
+hello ${title}
 </body>
 </html>

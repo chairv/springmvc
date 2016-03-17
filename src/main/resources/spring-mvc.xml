@@ -1,43 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
-        <!--<property name="suffix" value=".jsp"/>-->
-    <!--</bean>-->
+    <context:component-scan base-package="com.controller"/>
 
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
-    <bean name="/show.do" class="com.controller.BaseController"/>
-
-    <bean id="helloService" class="com.hessian.HelloService"/>
-
-    <bean name="/hello.do" class="org.springframework.remoting.caucho.HessianServiceExporter">
-        <property name="service" ref="helloService"/>
-        <property name="serviceInterface" value="com.hessian.Hello"/>
-    </bean>
-
-    <bean id="freemarketConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/view/"/>
-        <property name="freemarkerSettings">
+    <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/WEB-INF/view/"/>
+        <property name="velocityProperties">
             <props>
-                <prop key="template_update_delay">0</prop>
-                <prop key="default_encoding">UTF-8</prop>
-                <prop key="number_format">0.##########</prop>
-                <prop key="classic_compatible">true</prop>
-                <prop key="template_exception_handler">ignore</prop>
+                <prop key="input.encoding">utf-8</prop>
+                <prop key="output.encoding">utf-8</prop>
             </props>
         </property>
     </bean>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="suffix">
-            <value>.ftl</value>
-        </property>
-        <property name="contentType" value="text/html;charset=UTF-8"></property>
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        <property name="cache" value="true"/>
+        <property name="prefix" value=""/>
+        <property name="suffix" value=".hsml"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
     </bean>
 
 </beans>
