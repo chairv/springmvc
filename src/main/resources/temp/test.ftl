@@ -13,7 +13,7 @@
 
     <tbody>
     <tr>
-        <td>${date}</td>
+        <td>${date?string("yyyy-MM-dd")}</td>
     </tr>
     </tbody>
 </table>
