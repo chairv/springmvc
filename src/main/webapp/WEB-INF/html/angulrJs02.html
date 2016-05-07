@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJs02</title>
+    <script src="../../js/angular.min.js"></script>
+    <script src="main02.js"></script>
+</head>
+<body>
+    {{name}}
+    <div ng-controller="myController">
+        {{person.name}}
+        {{person.age}}
+    </div>
+
+    <div ng-controller="parentController">
+        <div ng-controller="childController">
+            <input type="text" ng-model="person.greeted" placeholder="Name">
+            <a ng-click="sayHello()">Say hello</a>
+        </div>
+    </div>
+</body>
+</html>

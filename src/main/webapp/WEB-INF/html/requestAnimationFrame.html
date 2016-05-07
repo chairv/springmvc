@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>requestAnimationFrame </title>
+    <script src="../../js/comm.js"></script>
+</head>
+<body>
+
+<div id="now">1</div>
+
+<script>
+   // requestAnimFrame(incr);
+
+    var i = 1;
+    function incr() {
+        i++;
+        document.getElementById("now").innerText = i;
+       var a =  requestAnimFrame(incr);
+        if(i == 200){
+            cancelAnimationFrame(a);
+        }
+    }
+</script>
+</body>
+</html>
