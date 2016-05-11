@@ -1,7 +1,9 @@
-import org.junit.Test;
-
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+
+import org.apache.commons.lang.time.DateUtils;
+import org.junit.Test;
 
 /**
  * Created by tancw on 2016/2/16.
@@ -22,5 +24,11 @@ public class DateTest {
             System.out.println(i);
             System.out.println(j);
         }
+    }
+
+    @Test
+    public void test3() throws ParseException {
+        Date date1 = DateUtils.parseDate("20151231",new String[]{"yyyyMMdd"});
+        System.out.println(date1);
     }
 }
