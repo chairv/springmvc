@@ -1,9 +1,9 @@
-import org.apache.commons.lang.time.DateUtils;
-import org.junit.Test;
-
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Date;
+
+import org.apache.commons.lang.time.DateUtils;
+import org.junit.Test;
 
 /**
  * Created by tancw on 2016/1/26.
@@ -35,5 +35,11 @@ public class BaseTest {
 		BigDecimal b1 = new BigDecimal(100);
 		b1.add(new BigDecimal("2"));
 		System.out.println(b1.intValue());
+	}
+
+	@Test
+	public void tstring(){
+        String rs = "monthReport201604";
+		System.out.println(rs.substring(11));
 	}
 }
