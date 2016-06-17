@@ -1,6 +1,7 @@
-import org.junit.Test;
-
+import java.math.BigDecimal;
 import java.util.Date;
+
+import org.junit.Test;
 
 /**
  * Created by tancw on 2016/1/18.
@@ -24,9 +25,9 @@ public class StringFormatTest {
 
 //        System.out.printf("3>7的结果是:%b %n",3>7);
 //        System.out.printf("上面的折扣是%d%% %n",85);
+        BigDecimal oldOnceLimit = new BigDecimal("110.00");
+        System.out.println(String.format("单笔%s万、单日%s万、单月100万",oldOnceLimit.toPlainString(),oldOnceLimit));
 
-        String msg = "[活动]测试2016财富值。恭喜您，今天第%d次游戏，获得1元特权金。特权金按8%年化收益率计息1天，可在存钱时进行抵扣。";
-        System.out.printf("[活动]测试2016财富值。恭喜您，今天第%d次游戏，获得1元特权金。特权金按8%%年化收益率计息1天，可在存钱时进行抵扣。",7);
     }
 
     /**

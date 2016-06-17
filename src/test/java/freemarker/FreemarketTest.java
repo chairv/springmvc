@@ -5,18 +5,20 @@ import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.utility.XmlEscape;
-import org.junit.Test;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
+
+import org.junit.Test;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 /**
  * Created by tancw on 2016/2/2.
@@ -48,7 +50,7 @@ public class FreemarketTest {
 		vas.put("xml_escape", xmlEscape);
 		freeMarkerConfigurer.setFreemarkerVariables(vas);
 		freeMarkerConfigurer.setConfiguration(configuration);
-		Template tp = freeMarkerConfigurer.getConfiguration().getTemplate("temp/test.ftl");
+		Template tp = freeMarkerConfigurer.getConfiguration().getTemplate("/src/main/resources/temp/test.ftl");
 		String html = FreeMarkerTemplateUtils.processTemplateIntoString(tp, param);
 		System.out.println(html);
 	}
@@ -57,9 +59,10 @@ public class FreemarketTest {
 	public void config() {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("date", new Date());
+		param.put("limit", new BigDecimal("100.00"));
 		StringWriter out = new StringWriter();
 		try {
-			Template template = configuration.getTemplate("/temp/test.ftl", "utf-8");
+			Template template = configuration.getTemplate("/src/main/resources/temp/test.ftl", "utf-8");
 			template.process(param, out);
 			out.flush();
 			System.out.println(out.toString());

@@ -13,6 +13,11 @@
 
     <tbody>
     <tr>
+        <#if limit = -1>
+            <td>无限额</td>
+         <#else>
+             <td>${limit?number}</td>
+        </#if>
         <td>${date?string("yyyy-MM-dd")}</td>
     </tr>
     </tbody>
