@@ -24,7 +24,8 @@ public class StringFormatTest {
 		System.out.println(str);
 
 //        System.out.printf("3>7的结果是:%b %n",3>7);
-//        System.out.printf("上面的折扣是%d%% %n",85);
+        System.out.printf("上面的折扣是%02d",14);
+
         BigDecimal oldOnceLimit = new BigDecimal("110.00");
         System.out.println(String.format("单笔%s万、单日%s万、单月100万",oldOnceLimit.toPlainString(),oldOnceLimit));
 
@@ -49,6 +50,7 @@ public class StringFormatTest {
         System.out.printf("月/日/年格式:%tD%n",date);
         System.out.printf("HH:MM:SS格式(24时制):%tT%n",date);
         System.out.println(String.format("%tF",date));
+        System.out.println(String.format("%tY%tm%td",date,date,date));
     }
 
     /**
@@ -82,6 +84,7 @@ public class StringFormatTest {
 	public void test3() {
 		Date date = new Date();
 		System.out.printf("月份的日(前面不补0):%te", date);
+		System.out.printf("\n月份:%tm", date);
 	}
 
     /*
