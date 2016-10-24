@@ -2,6 +2,7 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Date;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 
@@ -52,5 +53,10 @@ public class BaseTest {
 		a = a>>10;
 		System.out.println(a);
 		System.out.println(Integer.toBinaryString(a));
+	}
+
+	@Test
+	public void testequal(){
+		System.out.println(StringUtils.equals("0",null));
 	}
 }

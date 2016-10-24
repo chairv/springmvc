@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.text.MessageFormat;
 import java.util.Date;
 
 import org.junit.Test;
@@ -22,13 +23,12 @@ public class StringFormatTest {
 		String str = null;
 		str = String.format("Hi,%s", "林可林");
 		System.out.println(str);
-
 //        System.out.printf("3>7的结果是:%b %n",3>7);
         System.out.printf("上面的折扣是%02d",14);
-
-        BigDecimal oldOnceLimit = new BigDecimal("110.00");
+        BigDecimal oldOnceLimit = new BigDecimal("110.10");
         System.out.println(String.format("单笔%s万、单日%s万、单月100万",oldOnceLimit.toPlainString(),oldOnceLimit));
 
+        System.out.println(MessageFormat.format("{0}",oldOnceLimit));
     }
 
     /**
@@ -85,6 +85,7 @@ public class StringFormatTest {
 		Date date = new Date();
 		System.out.printf("月份的日(前面不补0):%te", date);
 		System.out.printf("\n月份:%tm", date);
+		System.out.printf("\n%tY", date);
 	}
 
     /*
@@ -107,6 +108,14 @@ public class StringFormatTest {
     s: 1970-1-1 00:00:00 到现在所经过的秒数，如：1193468128
     Q: 1970-1-1 00:00:00 到现在所经过的毫秒数，如：1193468128984
     */
+
+    @Test
+    public void test(){
+        String str = "date";
+        String getName = String.format("get%s%s",str.substring(0,1).toUpperCase(),str.substring(1));
+        System.out.println(getName);
+    }
+
 
 
 }

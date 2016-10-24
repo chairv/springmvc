@@ -9,6 +9,7 @@ import org.junit.Test;
  * Created by tancw on 2016/2/16.
  */
 public class DateTest {
+    Date now = new Date();
 
 	@Test
 	public void test() {
@@ -30,5 +31,24 @@ public class DateTest {
     public void test3() throws ParseException {
         Date date1 = DateUtils.parseDate("20151231",new String[]{"yyyyMMdd"});
         System.out.println(date1);
+    }
+
+    @Test
+    public void testTrun() {
+        Date now = new Date();
+        Date d2 = DateUtils.addYears(now,1);
+        System.out.println(DateUtils.truncatedEquals(now,d2,Calendar.YEAR));
+    }
+
+    @Test
+    public void test4(){
+        System.out.println(DateUtils.truncate(now,5));
+    }
+
+    @Test
+    public void add() throws ParseException {
+        Date date = DateUtils.parseDate("2016-11-11",new String[]{"yyyy-MM-dd"});
+        Date date2 = DateUtils.parseDate("2016-01-30",new String[]{"yyyy-MM-dd"});
+        System.out.println(DateUtils.addDays(date,-27));
     }
 }
