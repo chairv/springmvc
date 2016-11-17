@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.junit.Test;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * Created by tancw on 2016/1/18.
  */
@@ -85,7 +87,7 @@ public class StringFormatTest {
 		Date date = new Date();
 		System.out.printf("月份的日(前面不补0):%te", date);
 		System.out.printf("\n月份:%tm", date);
-		System.out.printf("\n%tY", date);
+		System.out.printf("\n%tY%tm%tdT", date,date,date);
 	}
 
     /*
@@ -111,11 +113,7 @@ public class StringFormatTest {
 
     @Test
     public void test(){
-        String str = "date";
-        String getName = String.format("get%s%s",str.substring(0,1).toUpperCase(),str.substring(1));
-        System.out.println(getName);
+        String result = JSON.toJSONString("success{ret_code:\"0000\",ret_msg:\"交易成功\"}");
+        System.out.println(result);
     }
-
-
-
 }
