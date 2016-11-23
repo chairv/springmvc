@@ -11,6 +11,7 @@ import com.drools.PointDomain;
 import com.drools.PointRuleEngine;
 
 /**
+ * http://blog.csdn.net/quzishen/article/details/6163012
  * Created by tancw on 2016/11/23.
  */
 public class PoinitRuleEngineImpl implements PointRuleEngine {
@@ -38,7 +39,6 @@ public class PoinitRuleEngineImpl implements PointRuleEngine {
 
     private List<String> getTestDrlFile() {
         List<String> drlFilePath = new ArrayList<String>();
-        drlFilePath.add();
         return null;
     }
 
