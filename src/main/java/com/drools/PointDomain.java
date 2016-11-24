@@ -80,4 +80,11 @@ public class PointDomain {
 	public void setBillThisMonth(int billThisMonth) {
 		this.billThisMonth = billThisMonth;
 	}
+
+	@Override
+	public String toString() {
+		return "PointDomain{" + "username='" + username + '\'' + ", birthDay=" + birthDay + ", point=" + point + ", buyNums=" + buyNums
+				+ ", backNums=" + backNums + ", buyMoney=" + buyMoney + ", backMondy=" + backMondy + ", billThisMonth=" + billThisMonth
+				+ '}';
+	}
 }
