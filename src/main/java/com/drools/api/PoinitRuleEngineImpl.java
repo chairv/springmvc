@@ -61,6 +61,7 @@ public class PoinitRuleEngineImpl implements PointRuleEngine {
 			for (String ruleFilePath : drlFilePath) {
 				readers.add(new FileReader(new File(ruleFilePath)));
 			}
+			return readers;
 		}
 		return null;
 	}
