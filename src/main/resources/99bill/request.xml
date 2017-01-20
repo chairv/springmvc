@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasMessage xmlns="http://www.99bill.com/mas_cnp_merchant_interface">
+    <version>1.0</version>
+    <TxnMsgContent>
+        <txnType>PUR</txnType>
+        <interactiveStatus>TR1</interactiveStatus>
+        <cardNo>4392251107375778</cardNo>
+        <expiredDate>0907</expiredDate>
+        <cvv2>578</cvv2>
+        <amount>1200.00</amount>
+        <merchantId>104110045111144</merchantId>
+        <terminalId>00000001</terminalId>
+        <entryTime>20071219011215</entryTime>
+        <externalRefNumber>000123678</externalRefNumber>
+        <customerId>13906003829</customerId>
+        <cardHolderName>测试人</ cardHolderName>
+        <cardHolderId>110102198012200019</cardHolderId>
+    </TxnMsgContent>
+</MasMessage>
