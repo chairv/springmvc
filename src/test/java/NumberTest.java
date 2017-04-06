@@ -8,7 +8,7 @@ import org.junit.Test;
 public class NumberTest {
 
     @Test public  void test(){
-        BigDecimal b= new BigDecimal("1123123001111.1");
-        System.out.println(b.movePointLeft(2).setScale(14,BigDecimal.ROUND_FLOOR));
+        BigDecimal b= new BigDecimal("20.12312312");
+        System.out.println(b.setScale(2));
     }
 }

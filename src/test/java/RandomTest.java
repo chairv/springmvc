@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 import org.junit.Test;
@@ -12,8 +13,10 @@ public class RandomTest {
 
 	@Test
 	public void test() {
-		String str = "sdf?id=1";
-		System.out.println(str.substring(str.indexOf("?")));
+//		String str = "sdf?id=1";
+//		System.out.println(str.substring(str.indexOf("?")));
+		Random random = new Random();
+		System.out.println(random.nextInt(3));
 	}
 
 	private JSONObject createRandReuslt() {
