@@ -1,18 +1,9 @@
 package com.sort;
 
-import java.util.Arrays;
-
 /**
  * Created by tancw on 2017/4/5.
  * 第一趟比较前两个数,然后把第二个数按大小插入有序表中
  * 第二趟把第三个数据与前两个数据从前后扫描,把第三个数按大小插入到有序表中
- * [26, 53, 48, 11, 13, 48, 32, 15]
- * [26, 48, 53, 11, 13, 48, 32, 15]
- * [11, 26, 48, 53, 13, 48, 32, 15]
- * [11, 13, 26, 48, 53, 48, 32, 15]
- * [11, 13, 26, 48, 48, 53, 32, 15]
- * [11, 13, 26, 32, 48, 48, 53, 15]
- * [11, 13, 15, 26, 32, 48, 48, 53]
  */
 public class InsertSort {
 
@@ -28,8 +19,7 @@ public class InsertSort {
                 }
             }
             r[j + 1] = t;  //此时j = -1, j[0] = t
-//            System.out.println(j+1);
-            System.out.println(Arrays.toString(r));
+            Sort.out(r);
         }
     }
 
@@ -45,13 +35,13 @@ public class InsertSort {
                 }
                 r[j + 1] = r[0];
             }
+            Sort.out(r);
         }
     }
 
     public static void main(String[] args) {
         int[] r = {53, 26, 48, 11, 13, 48, 32, 15};
         sortFlag(r, 8);
-        System.out.println(Arrays.toString(r));
     }
 }
 

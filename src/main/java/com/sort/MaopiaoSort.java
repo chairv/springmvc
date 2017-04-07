@@ -1,15 +1,16 @@
 package com.sort;
 
-import java.util.Arrays;
-
 /**
  * Created by tancw on 2017/4/7.
+ * <p>
+ * 冒泡排序:
+ * 临近的数字两两进行比较,按照从小到大或者从大到小的顺序进行交换
+ * 时间复杂度:
  */
 public class MaopiaoSort {
     public static void main(String[] args) {
         int[] ary = {26, 53, 48, 11, 13, 48, 32, 15};
-        sortUp(ary);
-//        System.out.println(Arrays.toString(ary));
+        sortBase(ary);
     }
 
     static void sortBase(int[] ary) {
@@ -17,11 +18,10 @@ public class MaopiaoSort {
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (ary[j] < ary[i]) {
-                    int tmp = ary[i];
-                    ary[i] = ary[j];
-                    ary[j] = tmp;
+                    Sort.swap(ary, i, j);
                 }
             }
+            Sort.out(ary);
         }
     }
 
@@ -33,13 +33,11 @@ public class MaopiaoSort {
             flag = false;
             for (j = n - 1; j >= i; j--) {
                 if (ary[j - 1] > ary[j]) {
-                    int temp = ary[j];
-                    ary[j] = ary[j - 1];
-                    ary[j - 1] = temp;
+                    Sort.swap(ary, j, j - 1);
                     flag = true;
                 }
             }
-            System.out.println(Arrays.toString(ary));
+            Sort.out(ary);
         }
     }
 }
