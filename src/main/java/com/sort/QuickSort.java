@@ -2,6 +2,8 @@ package com.sort;
 
 /**
  * Created by tancw on 2017/4/7.
+ * 快速排序
+ * O(N*logN)
  */
 public class QuickSort {
     public static void main(String[] args) {
@@ -22,7 +24,6 @@ public class QuickSort {
      * 取一个数做基准数
      * 分区过程,将比这个数大的放到右边,小的放左边
      * 再对左右区间重复第二步,直到各区间只有一个数
-     *
      * @param ary
      * @param low
      * @param high
@@ -38,6 +39,7 @@ public class QuickSort {
             //low++表示从low 前后面 到high
             while (low < high && ary[low] < baseKey) low++;
             if (low < high) ary[high--] = ary[low];
+
         }
         ary[low] = baseKey;
         Sort.out(ary);

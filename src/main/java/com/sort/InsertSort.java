@@ -39,9 +39,18 @@ public class InsertSort {
         }
     }
 
+
+    static void binsertSort(int[] ary) {
+        for (int i = 2; i < ary.length; i++) {
+
+
+        }
+    }
+
+
     public static void main(String[] args) {
         int[] r = {53, 26, 48, 11, 13, 48, 32, 15};
-        sortFlag(r, 8);
+
     }
 }
 
