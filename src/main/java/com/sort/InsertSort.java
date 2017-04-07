@@ -6,40 +6,52 @@ import java.util.Arrays;
  * Created by tancw on 2017/4/5.
  * 第一趟比较前两个数,然后把第二个数按大小插入有序表中
  * 第二趟把第三个数据与前两个数据从前后扫描,把第三个数按大小插入到有序表中
- [26, 53, 48, 11, 13, 48, 32, 15]
- [26, 48, 53, 11, 13, 48, 32, 15]
- [11, 26, 48, 53, 13, 48, 32, 15]
- [11, 13, 26, 48, 53, 48, 32, 15]
- [11, 13, 26, 48, 48, 53, 32, 15]
- [11, 13, 26, 32, 48, 48, 53, 15]
- [11, 13, 15, 26, 32, 48, 48, 53]
+ * [26, 53, 48, 11, 13, 48, 32, 15]
+ * [26, 48, 53, 11, 13, 48, 32, 15]
+ * [11, 26, 48, 53, 13, 48, 32, 15]
+ * [11, 13, 26, 48, 53, 48, 32, 15]
+ * [11, 13, 26, 48, 48, 53, 32, 15]
+ * [11, 13, 26, 32, 48, 48, 53, 15]
+ * [11, 13, 15, 26, 32, 48, 48, 53]
  */
 public class InsertSort {
 
     static void sort1(int[] r, int n) {
-        int i, j, t;
-        for (i = 1; i < n; i++) {
-            t = r[i];     //53
+        int j, t;
+        for (int i = 1; i < n; i++) {
+            t = r[i];
             for (j = i - 1; j >= 0; j--) {
-                /**
-                 * 1. j=0,i=1,t=53,r[j]:26
-                 * 不满足
-                 */
                 if (t < r[j]) {
-                    r[j + 1] = r[j];
+                    r[j + 1] = r[j]; //j=0, j+1= i, 1与0对换  将的值换成前一个数
                 } else {
                     break;
                 }
             }
-            r[j + 1] = t;
+            r[j + 1] = t;  //此时j = -1, j[0] = t
+//            System.out.println(j+1);
             System.out.println(Arrays.toString(r));
         }
     }
 
+    static void sortFlag(int[] r, int n) {
+        int j;
+        for (int i = 2; i <= n; i++) {
+            if (r[i] < r[i - 1]) {
+                r[0] = r[i];
+                j = i - 2;   //0
+                while (r[0] < r[j]) {
+                    r[j + 1] = r[j];
+                    j--;
+                }
+                r[j + 1] = r[0];
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        int[] r = {26, 53, 48, 11, 13, 48, 32, 15};
-        sort1(r, 8);
-//        System.out.println(Arrays.toString(r));
+        int[] r = {53, 26, 48, 11, 13, 48, 32, 15};
+        sortFlag(r, 8);
+        System.out.println(Arrays.toString(r));
     }
 }
 
