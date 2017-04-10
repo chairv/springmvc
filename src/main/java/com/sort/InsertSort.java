@@ -7,16 +7,21 @@ package com.sort;
  */
 public class InsertSort {
 
+    /**
+     * 第一趟:  i = 1, t = r[1] = 26,
+     * j=i-1=0; r[0]=53,
+     * 判断 t < r[j] 即 26 < 53 则 r[i] = r[0],j-- = -1
+     * r[-1+1=0] = t;
+     *
+     * @param r
+     * @param n
+     */
     static void sort1(int[] r, int n) {
         int j, t;
         for (int i = 1; i < n; i++) {
             t = r[i];
-            for (j = i - 1; j >= 0; j--) {
-                if (t < r[j]) {
-                    r[j + 1] = r[j]; //j=0, j+1= i, 1与0对换  将的值换成前一个数
-                } else {
-                    break;
-                }
+            for (j = i - 1; j >= 0 && t < r[j]; j--) {
+                r[j + 1] = r[j];
             }
             r[j + 1] = t;  //此时j = -1, j[0] = t
             Sort.out(r);
@@ -24,33 +29,25 @@ public class InsertSort {
     }
 
     static void sortFlag(int[] r, int n) {
-        int j;
-        for (int i = 2; i <= n; i++) {
-            if (r[i] < r[i - 1]) {
-                r[0] = r[i];
-                j = i - 2;   //0
-                while (r[0] < r[j]) {
+        int j, t;
+        for (int i = 1; i < n; i++) {
+            t = r[i];
+            for (j = i - 1; j >= 0; j--) {
+                if (t < r[j]) {
                     r[j + 1] = r[j];
-                    j--;
+                }else{
+                    break;
                 }
-                r[j + 1] = r[0];
             }
+            r[j + 1] = t;
             Sort.out(r);
-        }
-    }
-
-
-    static void binsertSort(int[] ary) {
-        for (int i = 2; i < ary.length; i++) {
-
-
         }
     }
 
 
     public static void main(String[] args) {
         int[] r = {53, 26, 48, 11, 13, 48, 32, 15};
-
+        sortFlag(r, 8);
     }
 }
 
