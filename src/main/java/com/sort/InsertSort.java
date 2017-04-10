@@ -35,7 +35,7 @@ public class InsertSort {
             for (j = i - 1; j >= 0; j--) {
                 if (t < r[j]) {
                     r[j + 1] = r[j];
-                }else{
+                } else {
                     break;
                 }
             }
@@ -44,10 +44,37 @@ public class InsertSort {
         }
     }
 
+   //11, 13, 26, 48, 53, 48, 32, 15
+    static void binInsertSort(int[] r, int n) {
+        int t, j, low, high, mid;
+        for (int i = 1; i < n; i++) {
+            t = r[i];
+            System.out.println("t" + t);
+            low = 0;
+            high = i - 1;
+            while (low <= high) {  //0不小于-1
+                mid = low + high / 2;
+                if (t < r[mid]) {
+                    high = mid - 1;  //-1
+                } else {
+                    low = mid + 1;
+                }
+            }  //用二分查找,找出t的位置
+
+            System.out.printf("%d,%d\n", low, high);
+            //1>0
+            for (j = i; j > low; j--) {
+                r[j] = r[j - 1];   //
+            }
+            r[low] = t;
+            Sort.out(r);
+        }
+    }
+
 
     public static void main(String[] args) {
         int[] r = {53, 26, 48, 11, 13, 48, 32, 15};
-        sortFlag(r, 8);
+        binInsertSort(r, 8);
     }
 }
 
