@@ -2,6 +2,8 @@ package com.sort;
 
 /**
  * Created by tancw on 2017/4/7.
+ * 将原问题分解为若干个规模更小但结构与原问题相似的子问题。
+ * 递归地解这些子问题，然后将这些子问题的解组合为原问题的解。
  * 快速排序
  * O(N*logN)
  */
@@ -39,7 +41,6 @@ public class QuickSort {
             //low++表示从low 前后面 到high
             while (low < high && ary[low] < baseKey) low++;
             if (low < high) ary[high--] = ary[low];
-
         }
         ary[low] = baseKey;
         Sort.out(ary);
