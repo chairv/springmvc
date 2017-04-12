@@ -5,20 +5,17 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
-        <!--<property name="suffix" value=".jsp"/>-->
+    <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
+    <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
 
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-
-    <bean name="/show.do" class="com.controller.BaseController"/>
-
-    <bean id="helloService" class="com.hessian.HelloService"/>
-
-    <bean name="/hello.do" class="org.springframework.remoting.caucho.HessianServiceExporter">
-        <property name="service" ref="helloService"/>
-        <property name="serviceInterface" value="com.hessian.Hello"/>
-    </bean>
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+    <!--<bean name="/show.do" class="com.controller.BaseController"/>-->
+    <!--<bean id="helloService" class="com.hessian.HelloService"/>-->
+    <!--<bean name="/hello.do" class="org.springframework.remoting.caucho.HessianServiceExporter">-->
+        <!--<property name="service" ref="helloService"/>-->
+        <!--<property name="serviceInterface" value="com.hessian.Hello"/>-->
+    <!--</bean>-->
 
     <bean id="freemarketConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/WEB-INF/view/"/>
@@ -34,10 +31,7 @@
     </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="suffix">
-            <value>.ftl</value>
-        </property>
-        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="suffix" value=".ftl"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
     </bean>
-
 </beans>

@@ -38,7 +38,7 @@ public class QuickSort {
             while (low < high && ary[high] > baseKey) high--;
             //将大于基数的值放到基数位...ary[low]坑填了,此时high坑出来
             if (low < high) ary[low++] = ary[high];
-            //low++表示从low 前后面 到high
+            //low++表示从low 前向后面 到high
             while (low < high && ary[low] < baseKey) low++;
             if (low < high) ary[high--] = ary[low];
         }
