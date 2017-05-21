@@ -2,18 +2,16 @@ package pdf;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.nio.charset.Charset;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
 
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
-import com.itextpdf.text.Image;
+import com.itextpdf.text.ImgRaw;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPages;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -48,17 +46,23 @@ public class PdfDemo4 {
                             if (e instanceof Paragraph) {
                                 System.out.println("Paragraph");
                                 e = (Paragraph) e;
-                                if (StringUtils.equals("zhang", ((Paragraph) e).getContent())) {
-                                    Image image = Image.getInstance("D:\\workspace2017\\springmvc\\src\\main\\resources\\logo2.png");
-                                    document.add(image);
+//                                if (StringUtils.equals("zhang", ((Paragraph) e).getContent())) {
+//                                    Image image = Image.getInstance("D:\\workspace2017\\springmvc\\src\\main\\resources\\logo2.png");
+//                                    document.add(image);
+//                                }
+                            }
+                            if (e instanceof Chunk) {
+                                HashMap atts = ((Chunk) e).getAttributes();
+                                if (atts.keySet().contains("IMAGE")) {
+//                                    Image image = Image.getInstance("D:\\workspace2017\\springmvc\\src\\main\\resources\\logo2.png");
+//                                    document.add(image);
+//                                    continue;
+                                    ImgRaw row = (ImgRaw) atts.get("IMAGE");
+                                    row.setAbsolutePosition(20,20);
                                 }
                             }
                             document.add(e);
-                        } catch (DocumentException e1) {
-                            e1.printStackTrace();
-                        } catch (MalformedURLException e1) {
-                            e1.printStackTrace();
-                        } catch (IOException e1) {
+                        } catch (Exception e1) {
                             e1.printStackTrace();
                         }
                     }
