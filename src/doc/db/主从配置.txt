@@ -1,0 +1,28 @@
+主 my.cnf:
+ server-id		= 225
+ log-bin=mysql-bin
+ binlog_ignore_db	= mysql
+ log-slave-updates
+ skip-slave-start
+
+
+ SHOW GRANTS;   //查看权限
+ SELECT VERSION(); //查看版本
+ SHOW MASTER STATUS; //查看主状态
+ SELECT USER,repl_slave_priv FROM USER WHERE USER='backup';  //查看用户权限
+ GRANT REPLICATION SLAVE ON *.* TO 'backup'@'103.214.143.85' IDENTIFIED BY 'tancw';  //新建备份用户
+ GRANT FILE,SELECT,REPLICATION SLAVE ON *.* TO 'backup'@'103.214.143.85' IDENTIFIED BY 'tancw';  //赋权用户
+
+从/备 my.cnf
+    server-id		= 85
+    log-bin                 = mysql-bin
+    binlog_ignore_db	= mysql
+    skip-slave-start
+
+-- 配置从(根据show master status的信息配置)
+    CHANGE MASTER TO MASTER_HOST='120.24.94.225',MASTER_USER="backup",MASTER_PASSWORD='tancw',MASTER_PORT=3308,
+    MASTER_LOG_FILE='mysql-bin.000012',MASTER_LOG_POS=107;
+
+  STOP SLAVE;
+  START SLAVE;   //开启备份
+  SHOW SLAVE STATUS; 查看备份状态
