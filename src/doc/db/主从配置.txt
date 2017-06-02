@@ -5,13 +5,16 @@
  log-slave-updates
  skip-slave-start
 
-
  SHOW GRANTS;   //查看权限
  SELECT VERSION(); //查看版本
  SHOW MASTER STATUS; //查看主状态
  SELECT USER,repl_slave_priv FROM USER WHERE USER='backup';  //查看用户权限
  GRANT REPLICATION SLAVE ON *.* TO 'backup'@'103.214.143.85' IDENTIFIED BY 'tancw';  //新建备份用户
  GRANT FILE,SELECT,REPLICATION SLAVE ON *.* TO 'backup'@'103.214.143.85' IDENTIFIED BY 'tancw';  //赋权用户
+
+
+扩展:
+   mysql-master> FLUSH TABLES WITH READ LOCK;   锁表只读
 
 从/备 my.cnf
     server-id		= 85
