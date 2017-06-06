@@ -58,5 +58,11 @@ public class BaseTest {
 	@Test
 	public void testequal(){
 		System.out.println(StringUtils.equals("0",null));
+		String str = "1";
+		byte[] s = str.getBytes();
+		String ss = new String(s);
+
+
+
 	}
 }

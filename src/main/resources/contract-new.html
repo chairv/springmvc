@@ -10,7 +10,6 @@
     </style>
 </head>
 <body>
-
                     <p id="cTitle" class="fl" style="width:100%;font-family:黑体;font-size:20px;text-align:center;padding:20px 0px 0px 0px;">
                         投资咨询与管理服务协议
                     </p>
@@ -69,6 +68,18 @@
                                 <th style="width:25%">利息总额</th>
                             </tr>
                             <#list contract.invest  as item>
+                                <tr>
+                                    <td style="text-align:center;width:25%"> ${item.realName }</td>
+                                    <td style="text-align:center;width:25%">${item.amount?string("#0.00")}</td>
+                                    <td style="text-align:center;width:25%">${(item.rate * 100)?string("#0.00")}</td>
+                                    <td style="text-align:center;width:25%">${item.interest?string("#0.00")}</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center;width:25%"> ${item.realName }</td>
+                                    <td style="text-align:center;width:25%">${item.amount?string("#0.00")}</td>
+                                    <td style="text-align:center;width:25%">${(item.rate * 100)?string("#0.00")}</td>
+                                    <td style="text-align:center;width:25%">${item.interest?string("#0.00")}</td>
+                                </tr>
                                 <tr>
                                     <td style="text-align:center;width:25%"> ${item.realName }</td>
                                     <td style="text-align:center;width:25%">${item.amount?string("#0.00")}</td>
@@ -203,6 +214,9 @@
                         <p style="position: relative; padding-top: 3rem;">
                             签署并生效日期： ${contract.approvedDate?string("yyyy年MM月dd日")}
                         </p>
+                        <form>
+                            <input type="text" value="测试"/>
+                        </form>
                     </div>
 </body>
 </html>
