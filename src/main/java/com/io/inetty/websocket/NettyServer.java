@@ -15,11 +15,11 @@ public class NettyServer {
     }
 
     public void run() {
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
-        EventLoopGroup workGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(); //用来接收进来的连接
+        EventLoopGroup workGroup = new NioEventLoopGroup(); //用来处理已经被接收的连接
 
         try {
-            ServerBootstrap b = new ServerBootstrap();
+            ServerBootstrap b = new ServerBootstrap();  //启动NIO服务的辅助启动类
             b.group(bossGroup, workGroup);
             b.channel(NioServerSocketChannel.class);
             b.childHandler(new ChildChannelHandler());

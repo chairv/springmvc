@@ -76,6 +76,8 @@ public class MyWebSocketServerHandler extends SimpleChannelInboundHandler<Object
         System.out.println("服务端收到: " + request);
         TextWebSocketFrame tws = new TextWebSocketFrame(new Date().toString() + ctx.channel().id() + " : " + request);
         Global.group.writeAndFlush(tws);
+        //单发
+//        ctx.channel().writeAndFlush(tws);
     }
 
     private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req) {
