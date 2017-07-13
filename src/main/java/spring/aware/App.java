@@ -1,4 +1,4 @@
-package com.spring.aware;
+package spring.aware;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

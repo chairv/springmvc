@@ -1,4 +1,4 @@
-package com.spring.aware;
+package spring.aware;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.BeanNameAware;
@@ -17,7 +17,7 @@ public class AwareService implements BeanNameAware, ResourceLoaderAware {
 
 	@Override
 	public void setBeanName(String name) {
-		this.beanName = beanName;
+		this.beanName = name;
 	}
 
 	@Override
