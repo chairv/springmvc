@@ -1,0 +1,69 @@
+{
+  "button": [
+    {
+      "name": "进入猪猪",
+      "type": "view",
+      "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${com.weixin.appID}&redirect_uri=${base.path}base.do&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+    },
+    {
+      "name": "微信客服",
+      "sub_button": [
+        {
+          "name": "订阅管理",
+          "type": "view",
+          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${com.weixin.appID}&redirect_uri=${base.path}base.do&response_type=code&scope=snsapi_base&state=notice#wechat_redirect"
+        },
+        {
+          "name": "新手指引",
+          "type": "view",
+          "url": "${base.path}guide.html"
+        },
+        {
+          "name": "我的任务",
+          "type": "view",
+          "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${com.weixin.appID}&redirect_uri=${base.path}base.do&response_type=code&scope=myTask&state=notice#wechat_redirect"
+        },
+        {
+          "key": "M1002",
+          "name": "邀请好友",
+          "type": "click"
+        },
+        {
+          "key": "M1003",
+          "name": "呼叫客服",
+          "type": "click"
+        }
+      ]
+    },
+    {
+      "name": "关于我们",
+      "sub_button": [
+        {
+          "name": "最新活动",
+          "type": "view",
+          "url": "${base.path}redirect.do?page=banner-list"
+        },
+        {
+          "key": "M3001",
+          "name": "新闻报道",
+          "type": "click"
+        },
+        {
+          "key": "M3002",
+          "name": "股东背景",
+          "type": "click"
+        },
+        {
+          "key": "M3003",
+          "name": "安全保障",
+          "type": "click"
+        },
+        {
+          "name": "公司证书",
+          "type": "view",
+          "url": "${base.path}redirect.do?page=certficate"
+        }
+      ]
+    }
+  ]
+}
