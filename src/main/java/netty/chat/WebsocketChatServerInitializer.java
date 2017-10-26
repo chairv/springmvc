@@ -21,7 +21,7 @@ public class WebsocketChatServerInitializer extends ChannelInitializer {
                 .addLast(new ChunkedWriteHandler())
                 .addLast(new HttpRequestHandler("/ws"))
                 .addLast(new WebSocketServerProtocolHandler("/ws"))
-                .addLast(new TextWebSocketFrameHandler());
+                .addLast(null);
 
 
     }
