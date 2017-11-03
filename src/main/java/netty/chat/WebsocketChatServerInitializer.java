@@ -11,6 +11,7 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 /**
  * Created by tancw on 2017/7/31.
  * http://www.cnblogs.com/wunaozai/p/5240006.html
+ * https://waylau.gitbooks.io/essential-netty-in-action/GETTING%20STARTED/Asynchronous%20and%20Event%20Driven.html
  */
 public class WebsocketChatServerInitializer extends ChannelInitializer {
     @Override
@@ -20,8 +21,8 @@ public class WebsocketChatServerInitializer extends ChannelInitializer {
                 .addLast(new HttpObjectAggregator(60 * 1024))
                 .addLast(new ChunkedWriteHandler())
                 .addLast(new HttpRequestHandler("/ws"))
-                .addLast(new WebSocketServerProtocolHandler("/ws"))
-                .addLast(null);
+                .addLast(new WebSocketServerProtocolHandler("/ws"));
+//                .addLast(new TextWebSocketFrameHandler());
 
 
     }
