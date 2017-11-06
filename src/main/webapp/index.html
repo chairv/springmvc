@@ -1,90 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>bootstrap学习 by 司徒正美</title>
+    <title>系统升级维护中</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-
-    <link rel="stylesheet" href="http://files.cnblogs.com/rubylouvre/bootstrap.css"/>
-    <script src="http://files.cnblogs.com/rubylouvre/jquery1.83.js"></script>
-    <script src="http://files.cnblogs.com/rubylouvre/bootstrap-transition.js"></script>
-    <script src="http://files.cnblogs.com/rubylouvre/bootstrap-dropdown.js"></script>
-
-    <script>
-        $(function () {
-            //注意：事件要绑定在UI容器上，而不是关闭按钮中
-//            $('.dropdown-toggle').dropdown()
-        })
-
-    </script>
+    <style>
+        body {
+            text-align: center;
+            margin-right: auto;
+            margin-left: auto;
+            padding-top: 15%;
+        }
+    </style>
 </head>
 <body>
-<div id="navbar-example" class="navbar navbar-static">
-    <div class="navbar-inner">
-        <div class="container" style="width: auto;">
-            <a class="brand" href="#">项目名称</a>
-            <ul class="nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉 <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">动作</a></li>
-                        <li><a href="#">另一个动作</a></li>
-                        <li><a href="#">其他</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">另一个链接</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown open">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉 <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">动作</a></li>
-                        <li><a href="#">另一个动作</a></li>
-                        <li><a href="#">其他</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">另一个链接</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav pull-right">
-                <li id="fat-menu" class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉 <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">动作</a></li>
-                        <li><a href="#">另一个动作</a></li>
-                        <li><a href="#">其他</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">另一个链接</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+<div>
+    <h1 id="show">测试</h1>
+    <div id="voice">
     </div>
 </div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<ul class="nav nav-pills">
-    <li><a href="#">规则的链接</a></li>
-    <li class="dropup" id="menutest1">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1">
-            下拉项
-            <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="#">动作</a></li>
-            <li><a href="#">另一个动作</a></li>
-            <li><a href="#">其他</a></li>
-            <li class="divider"></li>
-            <li><a href="#">被间隔的链接</a></li>
-        </ul>
-    </li>
-    <li class="active">
-        <a data-toggle="dropdown" href="#menutest1">
-            点击我看看
-        </a>
-    </li>
-
-</ul>
 </body>
+<script>
+    var ary = [
+        {voice: 'begin',msg:'模拟灯光现在开始,请开启前照灯'},
+        {voice:'cross',msg:'通过路口'},
+        {voice:'gongqiao',msg:'通过急弯,拱桥,人行横道,或没有交通信号灯的路口'},
+        {voice:'chaoche',msg:'超车'},
+        {voice:'huiche',msg:'会车'},
+        {voice:'tingche',msg:'路边临时停车'},
+        {voice:'meideng',msg:'照明不好的路段'},
+        {voice:'youdeng',msg:'照明良好的路段'},
+        {voice:'genche',msg:'同方向近距离跟车'},
+        {voice:'end',msg:'模拟灯光已结束,请关闭所有灯光'}
+    ];
+
+    window.setInterval(function () {
+        var ranObj  = ary[Math.floor(Math.random() * 9)];
+        document.getElementById('show').innerText = ranObj.msg;
+        var $vocie  = document.getElementById('voice');
+        $vocie.innerHTML = '<audio id="audio" src="audio/'+ ranObj.voice +'.mp3" autoplay></audio>';
+    }, '8000')
+
+</script>
 </html>

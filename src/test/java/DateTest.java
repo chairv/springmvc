@@ -1,7 +1,10 @@
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 
@@ -50,5 +53,39 @@ public class DateTest {
         Date date = DateUtils.parseDate("2016-11-11",new String[]{"yyyy-MM-dd"});
         Date date2 = DateUtils.parseDate("2016-01-30",new String[]{"yyyy-MM-dd"});
         System.out.println(DateUtils.addDays(date,-27));
+    }
+
+    @Test
+    public void testTime(){
+        Long dt = System.currentTimeMillis();
+        System.out.println(dt);
+
+        Long dtlong = 1504683344536L;
+        System.out.println(new Date(dtlong));
+
+        String state = "dssf_stime"+ dtlong;
+        System.out.println(state);
+        System.out.println(StringUtils.contains(state,"_stime"));
+        System.out.println(new Date(Long.parseLong(StringUtils.substringAfter(state,"_stime"))));
+        System.out.println(StringUtils.substringBefore(state,"_stime"));
+    }
+
+    @Test
+    public void testTimer(){
+        Timer noteTask = new Timer();
+        System.out.println("1");
+        noteTask.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("1");
+            }
+        }, 1000);
+        try {
+            Thread.sleep(1000*2L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
