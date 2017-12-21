@@ -21,7 +21,7 @@
 </body>
 <script>
     var ary = [
-        {voice: 'begin',msg:'模拟灯光现在开始,请开启前照灯'},
+//        {voice: 'begin',msg:'模拟灯光现在开始,请开启前照灯'},
         {voice:'cross',msg:'通过路口'},
         {voice:'gongqiao',msg:'通过急弯,拱桥,人行横道,或没有交通信号灯的路口'},
         {voice:'chaoche',msg:'超车'},
@@ -34,7 +34,7 @@
     ];
 
     window.setInterval(function () {
-        var ranObj  = ary[Math.floor(Math.random() * 9)];
+        var ranObj  = ary[Math.floor(Math.random() * 8)];
         document.getElementById('show').innerText = ranObj.msg;
         var $vocie  = document.getElementById('voice');
         $vocie.innerHTML = '<audio id="audio" src="audio/'+ ranObj.voice +'.mp3" autoplay></audio>';
