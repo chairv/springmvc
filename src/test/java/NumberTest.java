@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -41,4 +42,17 @@ public class NumberTest {
         System.out.println(percentageFormat.format(big));
     }
 
+    @Test
+    public void divTest() {
+        BigDecimal num = new BigDecimal(700);
+        BigDecimal num2 = new BigDecimal(12000);
+        System.out.println(num.divide(num2, 4, RoundingMode.UP).toPlainString());
+    }
+
+    @Test
+    public void tsestSb() {
+        String idcard = "423423198811042515";
+        String rs = StringUtils.substring(idcard, 0, 6) + "****" + StringUtils.substring(idcard, 14);
+        System.out.println(rs);
+    }
 }
