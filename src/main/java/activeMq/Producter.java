@@ -14,14 +14,6 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Producter {
 
-    //ActiveMq 的默认用户名
-    private static final String USERNAME = "amdin";
-    //ActiveMq 的默认登录密码
-    private static final String PASSWORD = "admin";
-    //ActiveMQ 的链接地址
-    private static final String BROKEN_URL = "http://localhost:8161/";
-
-
     AtomicInteger count = new AtomicInteger(0);
     ConnectionFactory connectionFactory;
     Connection connection;
@@ -29,7 +21,7 @@ public class Producter {
     ThreadLocal<MessageProducer> threadLocal = new ThreadLocal<>();
 
     public void init() {
-        connectionFactory = new ActiveMQConnectionFactory(USERNAME, PASSWORD, BROKEN_URL);
+        connectionFactory = new ActiveMQConnectionFactory(AQConf.USERNAME, AQConf.PASSWORD, AQConf.BROKEN_URL);
         try {
             connection = connectionFactory.createConnection();
             connection.start();
@@ -45,6 +37,8 @@ public class Producter {
             MessageProducer messageProducer = null;
             if (threadLocal.get() != null) {
                 messageProducer = threadLocal.get();
+            } else {
+                messageProducer = session.createProducer(queue);
                 threadLocal.set(messageProducer);
             }
             while (true) {
