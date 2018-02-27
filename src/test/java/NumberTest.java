@@ -11,6 +11,8 @@ import org.junit.Test;
  */
 public class NumberTest {
 
+    private static DecimalFormat df = new DecimalFormat("###.##");
+
     @Test
     public void test() {
         BigDecimal b = new BigDecimal("20.12312312");
@@ -54,5 +56,10 @@ public class NumberTest {
         String idcard = "423423198811042515";
         String rs = StringUtils.substring(idcard, 0, 6) + "****" + StringUtils.substring(idcard, 14);
         System.out.println(rs);
+    }
+
+    @Test
+    public void testFormat2() {
+        System.out.println(df.format(new BigDecimal("21231231231.120")));
     }
 }
