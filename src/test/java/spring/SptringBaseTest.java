@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class SptringBaseTest {
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println("begin");
         Thread.currentThread().setDaemon(true);
     }
