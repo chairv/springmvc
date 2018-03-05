@@ -5,6 +5,13 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.HttpClientConnectionManager;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.util.EntityUtils;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * Created by tancw on 2017/7/25.
@@ -23,8 +30,14 @@ public class MenuTest {
         }
     }
 
-    private static String createMenu(String menuStr, String accessToken) {
-        return null;
+    public static String createMenu(String params, String accessToken) throws Exception {
+        HttpPost httpost = HttpClientConnectionManager.getPostMethod("https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + accessToken);
+        httpost.setEntity(new StringEntity(params, "UTF-8"));
+        HttpResponse response = httpclient.execute(httpost);
+        String jsonStr = EntityUtils.toString(response.getEntity(), "utf-8");
+        System.out.println(jsonStr);
+        JSONObject object = JSON.parseObject(jsonStr);
+        return object.getString("errmsg");
     }
 
     private static String parse(String str) {
