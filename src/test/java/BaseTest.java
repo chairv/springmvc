@@ -57,11 +57,8 @@ public class BaseTest {
 
     @Test
     public void testequal() {
-        System.out.println(StringUtils.equals("0", null));
-        String str = "1";
-        byte[] s = str.getBytes();
-        String ss = new String(s);
-
-
+        String str = "oOViC0ySdgRxNOntj7y3BH42ZMNE";
+        System.out.println(StringUtils.length(str));
+        System.out.println(StringUtils.substring(str, StringUtils.length(str) - 4, StringUtils.length(str)) + "****");
     }
 }

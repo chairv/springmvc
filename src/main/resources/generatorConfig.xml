@@ -19,8 +19,8 @@
         </commentGenerator>
 
         <!-- jdbc连接信息 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/pmb"
-                        userId="root" password="123456"/>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.200:3306/pmbox0828"
+                        userId="root" password="root123456"/>
         <!-- 生成vo对象 -->
         <javaModelGenerator targetPackage="com.xyb.pmb.system.vo" targetProject="src/main/java/"/>
         <!-- 生成用于查询的Example对象 -->
@@ -28,7 +28,7 @@
         <!-- 生成DAO的类文件以及配置文件 -->
         <javaClientGenerator targetPackage="com.xyb.pmb.system.dao" targetProject="src/main/java/" type="XMLMAPPER"/>
         <!-- 想要生成的数据库表,自动化工具会根据该表的结构生成相应的vo对象 -->
-        <table tableName="b_announcement" domainObjectName="Announcement" enableCountByExample="false"
+        <table tableName="mk_redbag_log" domainObjectName="RedbagLog" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true" />
