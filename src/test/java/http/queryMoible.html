@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script>
+    var mobiles = [
+        13591159753,
+        15940865365,
+        13050544717,
+        13942048066,
+        13904089256,
+        13860727779,
+        13960561066,
+        13323859959
+    ];
+
+    $.each(mobiles,function (i, o) {
+        console.info(o);
+    })
+
+    function query(mobile)
+    {
+
+        // 读取归属数据，成功后调用 querycallback 函数
+        var oHead = document.getElementsByTagName('head')[0];
+        var oTar = document.getElementById("remotejs");
+
+        if (oTar)	oHead.removeChild(oTar);
+
+        var oScript = document.createElement('script');
+        oScript.type = "text/javascript";
+        oScript.id = "remotejs";
+        oScript.src = "http://v.showji.com/Locating/showji.com2016234999234.aspx?m=" + escape($("m").value) + "&output=json&callback=querycallback&timestamp=" + new Date().getTime();
+        oHead.appendChild(oScript);
+
+        return false;
+    }
+    function querycallback(obj)
+    {
+        // 检查是否成功获取手机归属信息
+        if (obj["QueryResult"] != "True")
+        {
+            $("txtError").innerHTML = "您输入的手机号码格式有误，请重新输入。";
+            $("panelResult").style.display=$("panelNotice").style.display="none";$("panelError").style.display="block";
+        }
+        else
+        {
+            // 对于直辖市，不显示“省”部分
+            //if (obj["City"] == obj["Province"])
+            //	obj["Province"] = "";
+
+            // 显示查询到的归属信息
+            if ($("txtMobile")!=null)	$("txtMobile").innerHTML=obj["Mobile"];
+            if ($("txtTO")!=null)		$("txtTO").innerHTML=obj["TO"];
+            if ($("txtProvince")!=null)	$("txtProvince").innerHTML=obj["Province"];
+            if ($("txtCity")!=null)		$("txtCity").innerHTML=obj["City"];
+            if ($("txtAreaCode")!=null)	$("txtAreaCode").innerHTML=obj["AreaCode"];
+            if ($("txtPostCode")!=null)	$("txtPostCode").innerHTML=obj["PostCode"];
+            if ($("txtVNO") != null)	$("txtVNO").innerHTML = obj["VNO"];
+            if ($("txtCard") != null)	$("txtCard").innerHTML = obj["TO"];			// 2014-4-17：该行代码仅为兼容原接口而保留，即将废弃。
+
+            if($("panelResult").style.display!="block")
+            {$("panelError").style.display=$("panelNotice").style.display="none";$("panelResult").style.display="block";}
+        }
+        selmobtext();
+    }
+
+    function QueryString(name)
+    {
+        var reg = new RegExp("(^|&|\\?)" + name + "=([^&]*)(&|$)"), r;
+        if (r=window.location.search.match(reg)) return unescape(r[2]);
+        return "";
+    }
+    if(typeof(strMobile)=='undefined')strMobile=QueryString("m");
+    if(strMobile.length>0){$("m").value=strMobile;query();}
+    selmobtext();
+</script>
+</html>
