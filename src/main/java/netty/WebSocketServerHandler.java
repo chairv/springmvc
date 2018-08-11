@@ -1,7 +1,5 @@
 package netty;
 
-import java.util.logging.Level;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -20,14 +18,12 @@ import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
 import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
 import io.netty.util.CharsetUtil;
-import com.sun.istack.internal.logging.Logger;
 
 /**
  * Created by tancw on 2017/7/31.
  */
 public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
 
-    private static final Logger logger = Logger.getLogger(WebSocketServerHandler.class);
     //全局websocket
     private WebSocketServerHandshaker handshaker;
 
@@ -75,13 +71,8 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
         if (!(frame instanceof TextWebSocketFrame)) {
             throw new UnsupportedOperationException(String.format("%s frame types not supported", frame.getClass().getName()));
         }
-
         //返回应答消息 text 文本帧
         String request = ((TextWebSocketFrame) frame).text();
-        if (logger.isLoggable(Level.FINE)) {
-            logger.fine(String.format("%s reveived %s", ctx.channel(), request));
-        }
-
         ctx.channel().write(new TextWebSocketFrame(request + ",欢迎使用Netty WebSocket服务,现在时刻: " + new java.util.Date().toString()));
     }
 
